@@ -1,0 +1,6 @@
+{
+    "public_path": "http://cdn.url/build/",
+    "dev_server_port": 8888,
+    "build_dir_name": "build"
+
+}
