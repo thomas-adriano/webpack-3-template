@@ -1,5 +1,5 @@
-import 'core/style-imports';
-// import './index.css';
+import 'core/styles';
+import 'index/index.css';
 
 import img from 'images/landing.jpg';
 // import page1 from 'test-pages/page-1.html';
@@ -38,4 +38,4 @@ btnContent3.click(() => {
     });
 });
 
-console.log('HELLOOO');
+console.log('HERERERE');

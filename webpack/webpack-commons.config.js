@@ -37,14 +37,14 @@ function rules() {
         //     enforce: 'pre',
         //     use: 'jshint-loader'
         // },
-        // {
-        //     test: /\.css$/,
-        //     use: ['style-loader', 'postcss-loader'],
-        // },
-        // {
-        //     test: /\.(woff|woff2|eot|ttf)$/,
-        //     use: 'url-loader'
-        // },
+        {
+            test: /\.css$/,
+            use: ['style-loader', 'postcss-loader'],
+        },
+        {
+            test: /\.(woff|woff2|eot|ttf)$/,
+            use: 'url-loader'
+        },
         {
             test: /\.(gif|png|jpe?g|svg)$/,
             use: [{
@@ -73,7 +73,8 @@ function rules() {
 function plugins() {
     return [
         new HtmlWebpackPlugin({
-            template: 'src/index/index.html'
+            template: 'src/index/index.html',
+            chunksSortMode: 'dependency'
         }),
         // new ExtractTextPlugin('[contenthash].css'),
 
@@ -89,8 +90,9 @@ function plugins() {
         //from node_modules
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            minChunks: function(module) {
-                return module.context && module.context.indexOf('node_modules') !== -1;
+            minChunks: function (module) {
+                let isNodeModule = module.context && module.context.indexOf('node_modules') !== -1;
+                return isNodeModule;
             }
         }),
 

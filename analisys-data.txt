@@ -1,38 +1,13 @@
-//without manifest CommonsChunk
+main.6b411774145da91d2a39.js    2.76 kB       4  [emitted]         main
+           0.0f102e4f2631bdce8d54.js  146 bytes       0  [emitted]
+           1.967acbc33b99fe218156.js  146 bytes       1  [emitted]
+           2.4a3fda30e9430a0fba8b.js  146 bytes       2  [emitted]
+      vendor.c974fbed1949a808a48e.js     285 kB       3  [emitted]  [big]  vendor
+    manifest.d41d8cd98f00b204e980.js    1.57 kB       5  [emitted]         manifest
 
-0globals.fc9f94bc409be1d94a84.js  231 bytes4  [emitted] 0globals
-0.b57cd5109feef82a1930.js  144 bytes0  [emitted] page3/[request]
-1.f38cbb7e5d0ca93c5b7f.js  144 bytes1  [emitted] page2/[request]
-2.111a6a7fb4a014b9e37b.js  143 bytes2  [emitted] page1/[request]
-main.26860d210d03f4a08afb.js  816 bytes3  [emitted] main
-vendor.157547e0eb38eaaaf117.js  96 kB5  [emitted] vendor
-
-//changing only main file:
-
-0.b57cd5109feef82a1930.js  144 bytes 0  [emitted] page3/[request]
-1.f38cbb7e5d0ca93c5b7f.js  144 bytes 1  [emitted] page2/[request]
-2.111a6a7fb4a014b9e37b.js  143 bytes 2  [emitted] page1/[request]
-main.66fa684a0544e461f75d.js  847 bytes 3  [emitted] main
-vendor.4461389f66be9d466ff1.js96 kB 5  [emitted] vendor
-
-//vendor changing too.
-
-
-//With manifest CommonsChunk
-0globals.b5316bf00345f0dd5027.js  231 bytes 5  [emitted] 0globals
-0.b57cd5109feef82a1930.js  144 bytes 0  [emitted] page3/[request]
-1.f38cbb7e5d0ca93c5b7f.js  144 bytes 1  [emitted] page2/[request]
-2.111a6a7fb4a014b9e37b.js  143 bytes 2  [emitted] page1/[request]
-vendor.a409af1e13bbe983e442.js94.5 kB 3  [emitted] vendor
-main.7a884c737d9375cd5736.js  816 bytes 4  [emitted] main
-manifest.550ba68bd0c2b2c16fa3.js 1.6 kB 6  [emitted] manifest
-
-//changing only main file:
-
-0globals.b5316bf00345f0dd5027.js  231 bytes   5  [emitted] 0globals
-0.b57cd5109feef82a1930.js  144 bytes   0  [emitted] page3/[request]
-1.f38cbb7e5d0ca93c5b7f.js  144 bytes   1  [emitted] page2/[request]
-2.111a6a7fb4a014b9e37b.js  143 bytes   2  [emitted] page1/[request]
-vendor.a409af1e13bbe983e442.js94.5 kB   3  [emitted] vendor
-main.3299456b2f7fbbe7b0c7.js  839 bytes   4  [emitted] main
-manifest.1bed35c3c2dfa5ebc91a.js 1.6 kB   6  [emitted] manifest
+    main.ec307cb645a96deb6d4d.js    2.78 kB       4  [emitted]         main
+           0.0f102e4f2631bdce8d54.js  146 bytes       0  [emitted]
+           1.967acbc33b99fe218156.js  146 bytes       1  [emitted]
+           2.4a3fda30e9430a0fba8b.js  146 bytes       2  [emitted]
+      vendor.91fd8d002f4dae53c21a.js     323 kB       3  [emitted]  [big]  vendor
+    manifest.d41d8cd98f00b204e980.js    1.57 kB       5  [emitted]         manifest
