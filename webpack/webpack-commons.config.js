@@ -3,6 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const WebpackChunkHash = require("webpack-chunk-hash");
 
 const ROOT_FOLDER = path.resolve(__dirname, '..');
 const BUILD_PATH = path.resolve('./build');
@@ -72,10 +75,15 @@ function rules() {
 
 function plugins() {
     return [
+        //generate 37 different icons for iOS devices, Android devices and the Desktop browser out of this js.png file.
+        new FaviconsWebpackPlugin('./assets/favicon/js.png'),
         new HtmlWebpackPlugin({
             template: 'src/index/index.html',
-            chunksSortMode: 'dependency'
+            chunksSortMode: 'dependency',
+            alwaysWriteToDisk: true //works in conjunction with html-webpack-harddisk-plugin
         }),
+        //It adds automatically preload to your html files to improve your load time. 
+        new PreloadWebpackPlugin(),
         // new ExtractTextPlugin('[contenthash].css'),
 
         new webpack.ProvidePlugin({
@@ -90,15 +98,22 @@ function plugins() {
         //from node_modules
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            minChunks: function (module) {
+            minChunks: function(module) {
                 let isNodeModule = module.context && module.context.indexOf('node_modules') !== -1;
                 return isNodeModule;
             }
         }),
 
         //creates a 'manifest.js' file containing all webpack's runtime code (all the common modules from vendor and main bundles)
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'manifest'
-        }),
+        // new webpack.optimize.CommonsChunkPlugin({
+        //     name: 'manifest'
+        // }),
+
+        new WebpackChunkHash(),
+        new ChunkManifestPlugin({
+            filename: 'webpack-manifest.json',
+            manifestVariable: 'webpackManifest',
+            inlineManifest: true
+        })
     ];
 }

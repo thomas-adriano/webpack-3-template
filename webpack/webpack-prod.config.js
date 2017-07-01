@@ -44,6 +44,7 @@ configs.plugins = configs.plugins.concat([
             'NODE_ENV': JSON.stringify('production')
         }
     }),
+    new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.UglifyJsPlugin({
         compress: {
             warnings: true,
