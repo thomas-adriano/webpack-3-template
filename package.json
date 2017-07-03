@@ -1,15 +1,15 @@
 {
-    "name": "webpack2-es6-cssnext",
-    "version": "0.0.1",
-    "description": "Webpack 2 + ES6 (Babel) + CSSNext (PostCSS)",
+    "name": "webpack-3-template",
+    "version": "1.0.0",
+    "description": "Basic Webpack 3 template, optimized for caching and performance",
     "main": "src/index.js",
     "author": "thomas.o.adriano@gmail.com",
     "license": "MIT",
     "scripts": {
         "build:dev": "rm -rdf ./build && mkdir build && webpack --colors --progress --display-error-details --config webpack/webpack-dev.config.js",
         "build:prod": "rm -rdf ./build && mkdir build && webpack --colors --progress --display-error-details --config webpack/webpack-prod.config.js",
-        "start": "yarn run dist && http-server -p 8081 ./build",
-        "start:live": "webpack-dev-server --colors --progress --hot --inline --host 0.0.0.0 --config webpack/webpack-dev.config.js"
+        "start": "yarn run build:prod && http-server -p 8081 ./build",
+        "start:dev": "webpack-dev-server --colors --progress --hot --inline --host 0.0.0.0 --config webpack/webpack-dev.config.js"
     },
     "browserslist": [
         "last 3 versions"
@@ -17,8 +17,10 @@
     "dependencies": {
         "bootstrap": "^3.3.7",
         "font-awesome": "^4.7.0",
+        "html5shiv": "^3.7.3",
         "jquery": "^3.2.1",
-        "promise-polyfill": "^6.0.2"
+        "promise-polyfill": "^6.0.2",
+        "respond.js": "^1.4.2"
     },
     "devDependencies": {
         "autoprefixer": "^7.1.1",
@@ -31,6 +33,7 @@
         "babel-plugin-transform-runtime": "^6.23.0",
         "babel-preset-es2015": "^6.24.1",
         "chunk-manifest-webpack-plugin": "^1.1.0",
+        "copy-webpack-plugin": "^4.0.1",
         "css-loader": "^0.26.1",
         "extract-text-webpack-plugin": "^2.1.2",
         "favicons-webpack-plugin": "^0.0.7",
@@ -44,7 +47,7 @@
         "normalize.css": "^5.0.0",
         "postcss-cssnext": "^2.11.0",
         "postcss-loader": "^2.0.6",
-        "preload-webpack-plugin": "^1.2.2",
+        "script-ext-html-webpack-plugin": "^1.8.3",
         "style-loader": "^0.13.1",
         "url-loader": "^0.5.7",
         "webpack": "^3.0.0",

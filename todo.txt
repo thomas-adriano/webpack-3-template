@@ -1,0 +1,5 @@
+-create a 404 page;
+https://webpack.js.org/guides/production/
+-uso de env para selecionar arquivo config
+-configuração do devsrever no arquivo de config
+-uso de webpackmerge
