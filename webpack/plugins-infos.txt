@@ -1,1 +1,0 @@
-ResourceHintWebpackPlugin: It will help the browser to start downloading the data as soon as possible (without blocking the HTML); Start downloading the app’s JavaScript as soon as possible (without blocking the HTML); When both the script and the data are downloaded, and the HTML has been parsed, run the script which will breathe life into the page.
