@@ -9,7 +9,6 @@ const path = require('path');
 const ROOT_FOLDER = path.resolve(__dirname, '..');
 const BUILD_PATH = path.resolve('./build');
 
-
 module.exports = {
     context: ROOT_FOLDER,
     entry: {
@@ -28,7 +27,14 @@ module.exports = {
             path.resolve('./assets')
         ]
     },
-    plugins: plugins()
+    plugins: plugins(),
+    devServer: {
+        port: 8081,
+        host: '0.0.0.0',
+        historyApiFallback: true,
+        noInfo: false,
+        stats: 'minimal'
+    }
 };
 
 function rules() {

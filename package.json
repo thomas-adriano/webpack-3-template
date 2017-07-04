@@ -6,16 +6,15 @@
     "author": "thomas.o.adriano@gmail.com",
     "license": "MIT",
     "scripts": {
-        "build:dev": "rm -rdf ./build && mkdir build && webpack --colors --progress --display-error-details --config webpack/webpack-dev.config.js",
-        "build:prod": "rm -rdf ./build && mkdir build && webpack --colors --progress --display-error-details --config webpack/webpack-prod.config.js",
+        "build:dev": "rm -rdf ./build && mkdir build && webpack --progress --display-error-details --config webpack/webpack-dev.config.js",
+        "build:prod": "rm -rdf ./build && mkdir build && webpack --progress --display-error-details --config webpack/webpack-prod.config.js",
         "start": "yarn run build:prod && http-server -p 8081 ./build",
-        "start:dev": "webpack-dev-server --colors --progress --hot --inline --host 0.0.0.0 --config webpack/webpack-dev.config.js"
+        "start:dev": "webpack-dev-server --progress --hot --inline --config webpack/webpack-dev.config.js"
     },
     "browserslist": [
         "last 3 versions"
     ],
     "dependencies": {
-        "bootstrap": "^3.3.7",
         "font-awesome": "^4.7.0",
         "html5shiv": "^3.7.3",
         "jquery": "^3.2.1",
@@ -44,14 +43,17 @@
         "image-webpack-loader": "^3.3.1",
         "jshint": "^2.9.4",
         "jshint-loader": "^0.8.3",
+        "node-sass": "^4.5.3",
         "normalize.css": "^5.0.0",
         "postcss-cssnext": "^2.11.0",
         "postcss-loader": "^2.0.6",
+        "sass-loader": "^6.0.6",
         "script-ext-html-webpack-plugin": "^1.8.3",
         "style-loader": "^0.13.1",
         "url-loader": "^0.5.7",
         "webpack": "^3.0.0",
         "webpack-chunk-hash": "^0.4.0",
-        "webpack-dev-server": "^2.5.0"
+        "webpack-dev-server": "^2.5.0",
+        "webpack-merge": "^4.1.0"
     }
 }
