@@ -61,16 +61,13 @@ function rules() {
             exclude: /(node_modules|bower_components)/,
             use: ['babel-loader'],
         },
-        // {
-        //     test: /\.html$/,
-        //     use: [{
-        //         loader: 'html-loader',
-        //         options: {
-        //             interpolate: true,
-        //             attrs: ['img:src', 'link:href']
-        //         }
-        //     }]
-        // }
+        {
+            test: /\.html$/,
+            exclude: path.join(ROOT_FOLDER, 'src/index/index.html'),
+            use: [{
+                loader: 'raw-loader',
+            }]
+        }
     ];
 }
 

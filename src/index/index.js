@@ -8,6 +8,7 @@ const imgEl = $('#landing-img');
 const btnContent1 = $('#btn-content1');
 const btnContent2 = $('#btn-content2');
 const btnContent3 = $('#btn-content3');
+const btnContent4 = $('#btn-content4');
 
 imgEl.attr('src', img);
 
@@ -35,6 +36,13 @@ btnContent3.click(() => {
         let content3 = $('#content3');
         content3.css({ 'display': 'block' });
         content3.attr('src', content3Img);
+    });
+});
+
+btnContent4.click(() => {
+    import ('core/404.html').then(_404 => {
+        console.log(_404);
+        document.body.innerHTML = _404;
     });
 });
 

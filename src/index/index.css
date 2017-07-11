@@ -1,22 +1,8 @@
-:root {
-    --border-color: #C9C9C9;
-    --font-color: #333332;
-    --main-background-color: #F5F7F3;
-}
-
-html, body {
-    background-color: var(--main-background-color);
-    box-sizing: border-box;
-    color: var(--font-color);
-}
-
-
-/* stylelint-disable selector-no-universal*/
-
-
 /* global resets */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     border-color: var(--border-color);
     box-sizing: inherit;
     color: var(--font-color);
@@ -71,6 +57,6 @@ html, body {
     padding: 3rem 5rem;
 }
 
-.animals-section > * + * {
+.animals-section>*+* {
     margin: 1rem 0 0 1rem;
 }
