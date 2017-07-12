@@ -2,7 +2,6 @@ const configs = require('./webpack-commons.config.js');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Merge = require('webpack-merge');
 
 module.exports = Merge(configs, {
@@ -76,11 +75,6 @@ module.exports = Merge(configs, {
 
         //extracts css content to separate files
         new ExtractTextPlugin('[name].[contenthash].css'),
-
-        new CopyWebpackPlugin([
-            { from: 'node_modules/respond.js/dest/respond.min.js', to: './' },
-            { from: 'node_modules/html5shiv/dist/html5shiv.min.js', to: './' },
-        ]),
 
         //minifies JS code
         new webpack.optimize.UglifyJsPlugin({

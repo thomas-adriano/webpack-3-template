@@ -1,4 +1,6 @@
-import 'core/styles';
+import 'normalize.css/normalize.css';
+import 'font-awesome/css/font-awesome.css';
+
 import 'index/index.css';
 
 import img from 'images/landing.jpg';

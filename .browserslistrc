@@ -1,0 +1,9 @@
+# Browsers supported by this web app.Ï
+# this configuration is read by, for instance, cssnext
+
+last 10 Firefox versions
+last 10 Chrome versions
+last 10 Opera versions
+last 4 Safari versions
+last 3 Edge versions
+last 1 ie versions
