@@ -1,3 +1,4 @@
 -create a 404 page;
 -test image compression methods;
 -add i18n (use cldr?);
+-add html minification

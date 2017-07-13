@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ChunkManifestPlugin = require('chunk-manifest-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const WebpackChunkHash = require("webpack-chunk-hash");
@@ -50,23 +49,9 @@ function rules() {
             use: 'url-loader'
         },
         {
-            test: /\.(gif|png|jpe?g|svg)$/,
-            use: [{
-                loader: 'url-loader',
-                options: { limit: '10000' } //10kb max
-            }]
-        },
-        {
             test: /\.js$/,
             exclude: /(node_modules|bower_components)/,
             use: ['babel-loader'],
-        },
-        {
-            test: /\.html$/,
-            exclude: path.join(ROOT_FOLDER, 'src/index/index.html'),
-            use: [{
-                loader: 'raw-loader',
-            }]
         }
     ];
 }
@@ -75,15 +60,6 @@ function plugins() {
     return [
         //generate different icons for iOS devices, Android devices and the Desktop browser out of this js.png file.
         new FaviconsWebpackPlugin('./assets/favicon/js.png'),
-
-        //generate an HTML5 file for you that includes all your webpack bundles in the body using script tags
-        new HtmlWebpackPlugin({
-            template: 'src/index/index.html',
-            title: 'Webpack 3 Template',
-            excludeChunks: ['html5respond'],
-            chunksSortMode: 'dependency',
-            alwaysWriteToDisk: true //works in conjunction with html-webpack-harddisk-plugin
-        }),
 
         //simulates a good old window object property
         new webpack.ProvidePlugin({

@@ -1,6 +1,8 @@
 const configs = require('./webpack-commons.config.js');
 const webpack = require('webpack');
+const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const Merge = require('webpack-merge');
 
@@ -19,6 +21,12 @@ module.exports = Merge(configs, {
         rules: [{
                 test: /\.(gif|png|jpe?g|svg)$/,
                 use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: '10000', //10kb max
+                        name: '[hash].[ext]' //pass to file-loader
+                    }
+                }, {
                     loader: 'image-webpack-loader',
                     query: {
                         progressive: true,
@@ -52,10 +60,28 @@ module.exports = Merge(configs, {
                     fallback: 'style-loader',
                     use: ['css-loader', 'postcss-loader', 'sass-loader']
                 }),
+            },
+            {
+                test: /\.html$/,
+                exclude: path.join(configs.context, 'src/index/index.html'),
+                use: [{
+                    loader: 'html-loader',
+                    options: {
+                        minimize: false
+                    }
+                }]
             }
         ],
     },
     plugins: [
+        //generate an HTML5 file for you that includes all your webpack bundles in the body using script tags
+        new HtmlWebpackPlugin({
+            template: 'src/index/index.html',
+            title: 'Webpack 3 Template',
+            chunksSortMode: 'dependency',
+            minify: {}
+        }),
+
         //generate identifiers that are preserved over builds
         new webpack.DefinePlugin({
             'process.env': {
