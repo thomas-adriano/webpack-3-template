@@ -1,4 +1,5 @@
 -create a 404 page;
 -test image compression methods;
 -add i18n (use cldr?);
--add html minification
+-add html minification;
+-incorporate some (or all) aspects of progressive web apps;
