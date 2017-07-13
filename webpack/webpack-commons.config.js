@@ -74,7 +74,7 @@ function plugins() {
         //from node_modules
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            minChunks: function(module) {
+            minChunks: function (module) {
                 let isNodeModule = module.context && module.context.indexOf('node_modules') !== -1;
                 return isNodeModule;
             }

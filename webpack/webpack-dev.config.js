@@ -12,34 +12,34 @@ module.exports = Merge(configs, {
     },
     module: {
         rules: [{
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: { importLoaders: 1 }
-                    },
-                    'postcss-loader'
-                ]
-            },
-            {
-                test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
-            },
-            {
-                test: /\.(gif|png|jpe?g|svg)$/,
-                use: ['file-loader']
-            },
-            {
-                test: /\.html$/,
-                exclude: path.join(configs.context, 'src/index/index.html'),
-                use: [{
-                    loader: 'html-loader',
-                    options: {
-                        minimize: true
-                    }
-                }]
-            }
+            test: /\.css$/,
+            use: [
+                'style-loader',
+                {
+                    loader: 'css-loader',
+                    options: { importLoaders: 1 }
+                },
+                'postcss-loader'
+            ]
+        },
+        {
+            test: /\.scss$/,
+            use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+        },
+        {
+            test: /\.(gif|png|jpe?g|svg)$/,
+            use: ['file-loader']
+        },
+        {
+            test: /\.html$/,
+            exclude: path.join(configs.context, 'src/index/index.html'),
+            use: [{
+                loader: 'html-loader',
+                options: {
+                    minimize: false
+                }
+            }]
+        }
         ],
     },
     plugins: [
@@ -50,7 +50,6 @@ module.exports = Merge(configs, {
             chunksSortMode: 'dependency',
             alwaysWriteToDisk: true //works in conjunction with html-webpack-harddisk-plugin
         }),
-
         //creates the html file even in webpack-dev-server sessions
         new HtmlWebpackHarddiskPlugin(),
 
