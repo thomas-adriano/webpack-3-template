@@ -1,3 +1,9 @@
-'use-strict';
+"use-strict";
 //general shared functionality in this file
-console.log('nothing here yet.');
+
+function initializeWebApp() {
+    "use-strict";
+    require("offline-plugin/runtime").install();
+}
+
+export default { initializeWebApp };
