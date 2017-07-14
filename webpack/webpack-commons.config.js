@@ -37,20 +37,19 @@ module.exports = {
 };
 
 function rules() {
-    return [
-        // {
-        //     test: /.js$/,
-        //     exclude: /node_modules/,
-        //     enforce: 'pre',
-        //     use: 'jshint-loader'
-        // },
+    return [{
+            test: /.js$/,
+            exclude: /(node_modules)/,
+            enforce: 'pre',
+            use: 'jshint-loader'
+        },
         {
             test: /\.(woff|woff2|eot|ttf)$/,
             use: 'url-loader'
         },
         {
             test: /\.js$/,
-            exclude: /(node_modules|bower_components)/,
+            exclude: /(node_modules)/,
             use: ['babel-loader'],
         }
     ];
@@ -74,7 +73,7 @@ function plugins() {
         //from node_modules
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            minChunks: function (module) {
+            minChunks: function(module) {
                 let isNodeModule = module.context && module.context.indexOf('node_modules') !== -1;
                 return isNodeModule;
             }
@@ -90,6 +89,5 @@ function plugins() {
         //webpack hashing routines (hash, chunkhash) generates the hash in an indeterministic way.
         //because of this, this plugin is used to make chunkhash works like contenthash.
         new WebpackChunkHash(),
-
     ];
 }

@@ -1,3 +1,5 @@
+'use-strict';
+
 import 'normalize.css/normalize.css';
 import 'font-awesome/css/font-awesome.css';
 
@@ -16,36 +18,44 @@ imgEl.attr('src', img);
 
 btnContent1.click(() => {
     //this import could be a normal js file import, loading a full graph o dependencies
+    /* jshint ignore:start */
     import ('../../assets/images/page-1.jpg').then(content1Img => {
         let content1 = $('#content1');
         content1.css({ 'display': 'block' });
         content1.attr('src', content1Img);
     });
+    /* jshint ignore:end */
 });
 
 btnContent2.click(() => {
     //this import could be a normal js file import, loading a full graph o dependencies
+    /* jshint ignore:start */
     import ('../../assets/images/page-2.jpg').then(content2Img => {
         let content2 = $('#content2');
         content2.css({ 'display': 'block' });
         content2.attr('src', content2Img);
     });
+    /* jshint ignore:end */
 });
 
 btnContent3.click(() => {
     //this import could be a normal js file import, loading a full graph o dependencies
+    /* jshint ignore:start */
     import ('../../assets/images/page-3.png').then(content3Img => {
         let content3 = $('#content3');
         content3.css({ 'display': 'block' });
         content3.attr('src', content3Img);
     });
+    /* jshint ignore:end */
 });
 
 btnContent4.click(() => {
+    /* jshint ignore:start */
     import ('core/404.html').then(_404 => {
         console.log(_404);
         document.body.innerHTML = _404;
     });
+    /* jshint ignore:end */
 });
 
-console.log('HERERERE');
+console.log('index.js loaded.');
