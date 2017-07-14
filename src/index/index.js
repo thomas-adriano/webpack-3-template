@@ -1,9 +1,11 @@
 'use-strict';
-
 import 'normalize.css/normalize.css';
 import 'font-awesome/css/font-awesome.css';
 
 import 'index/index.css';
+import core from 'core/core.js';
+
+core.initializeWebApp();
 
 import img from 'images/landing.jpg';
 // import page1 from 'test-pages/page-1.html';
