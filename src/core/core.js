@@ -1,9 +1,9 @@
 "use-strict";
+import * as OfflinePluginRuntime from "offline-plugin/runtime";
 //general shared functionality in this file
 
 function initializeWebApp() {
-    "use-strict";
-    require("offline-plugin/runtime").install();
+    OfflinePluginRuntime.install();
 }
 
 export default { initializeWebApp };

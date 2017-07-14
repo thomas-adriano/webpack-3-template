@@ -30,7 +30,6 @@ module.exports = Merge(configs, {
                 }, {
                     loader: 'image-webpack-loader',
                     query: {
-                        progressive: true,
                         pngquant: {
                             optimizationLevel: 7,
                             interlaced: true,
@@ -38,7 +37,8 @@ module.exports = Merge(configs, {
                             speed: 4
                         },
                         mozjpeg: {
-                            quality: 65
+                            progressive: true,
+                            quality: 75
                         },
                         gifsicle: {
                             optimizationLevel: 7,
@@ -113,7 +113,7 @@ module.exports = Merge(configs, {
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             compress: {
-                warnings: true,
+                warnings: false,
             },
             sourceMap: true,
         }),
