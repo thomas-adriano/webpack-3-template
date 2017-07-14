@@ -1,4 +1,2 @@
 -test image compression methods;
 -add i18n (use cldr?);
--add html minification;
--incorporate some (or all) aspects of progressive web apps;
