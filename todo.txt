@@ -1,2 +1,4 @@
 -test image compression methods;
 -add i18n (use cldr?);
+-implement offlineplugin for dev env;
+-configure offlinePlugin to work as expected in dev mode (maybe just dont use offlinePlugin in dev mode?);

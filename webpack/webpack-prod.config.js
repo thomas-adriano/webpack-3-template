@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
+const GlobalizePlugin = require("globalize-webpack-plugin");
 const Merge = require('webpack-merge');
 
 module.exports = Merge(configs, {
@@ -122,8 +123,16 @@ module.exports = Merge(configs, {
             minimize: true
         }),
 
+        new GlobalizePlugin({
+            production: true,
+            developmentLocale: "en", // locale to be used for development.
+            supportedLocales: ["en", "pt"], // locales that should be built support for.
+            messages: "i18n/[locale].json", // custom messages
+            output: "i18n/[locale].[hash].js", // build output.
+        }),
+
         //it's always better if OfflinePlugin is the last plugin added
         //makes this webapp offline ready by caching all (or some) of the webpack output assets.
-        new OfflinePlugin()
+        new OfflinePlugin({ responseStrategy: 'network-first' })
     ]
 });

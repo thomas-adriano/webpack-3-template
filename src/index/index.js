@@ -4,19 +4,22 @@ import 'font-awesome/css/font-awesome.css';
 
 import 'index/index.css';
 import core from 'core/core.js';
-
+const Globalize = require('globalize');
 core.initializeWebApp();
 
 import img from 'images/landing.jpg';
 // import page1 from 'test-pages/page-1.html';
 
 const imgEl = $('#landing-img');
+const i18nMsgEl = $('#i18n-msg');
 const btnContent1 = $('#btn-content1');
 const btnContent2 = $('#btn-content2');
 const btnContent3 = $('#btn-content3');
 const btnContent4 = $('#btn-content4');
 
 imgEl.attr('src', img);
+
+i18nMsgEl.text(Globalize.messageFormatter('msg-1'));
 
 btnContent1.click(() => {
     //this import could be a normal js file import, loading a full graph o dependencies
