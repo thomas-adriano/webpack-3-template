@@ -8,6 +8,10 @@ const OfflinePlugin = require('offline-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const Merge = require('webpack-merge');
 
+const extractCSS = new ExtractTextPlugin('[name].[contenthash].css');
+const extractSASS = new ExtractTextPlugin('[name].[contenthash].css');
+const extractLESS = new ExtractTextPlugin('[name].[contenthash].css');
+
 module.exports = Merge(configs, {
     // https://webpack.js.org/configuration/output/#output-publicpath
     // The value of the option is prefixed to every URL created 
@@ -51,16 +55,23 @@ module.exports = Merge(configs, {
         },
         {
             test: /\.css$/,
-            use: ExtractTextPlugin.extract({
+            use: extractCSS.extract({
                 fallback: 'style-loader',
                 use: ['css-loader', 'postcss-loader']
             }),
         },
         {
             test: /\.scss$/,
-            use: ExtractTextPlugin.extract({
+            use: extractSASS.extract({
                 fallback: 'style-loader',
                 use: ['css-loader', 'postcss-loader', 'sass-loader']
+            }),
+        },
+        {
+            test: /\.less$/,
+            use: extractLESS.extract({
+                fallback: 'style-loader',
+                use: ['css-loader', 'postcss-loader', 'less-loader']
             }),
         },
         {
@@ -108,7 +119,9 @@ module.exports = Merge(configs, {
         }),
 
         //extracts css content to separate files
-        new ExtractTextPlugin('[name].[contenthash].css'),
+        extractCSS,
+        extractSASS,
+        extractLESS,
 
         //minifies JS code
         new webpack.optimize.UglifyJsPlugin({
@@ -129,7 +142,7 @@ module.exports = Merge(configs, {
         new OfflinePlugin(),
 
         //represents bundle content as convenient interactive zoomable treemap.
-        //accessible at port 8888
-        new BundleAnalyzerPlugin()
+        //analyzerMode: 'static' makes it generate a static html report
+        new BundleAnalyzerPlugin({ analyzerMode: 'static' })
     ]
 });
