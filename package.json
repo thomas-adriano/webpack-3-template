@@ -10,8 +10,7 @@
         "build:prod": "rm -rdf ./build && mkdir build && yarn && webpack --progress --display-error-details --config webpack/webpack.prod.config.js",
         "start:dev": "yarn && webpack-dev-server --progress --hot --inline --config webpack/webpack.dev.config.js",
         "start:prod": "yarn && yarn run build:prod && http-server --gzip -p 8081 ./build",
-        "test": "jasmine --config=jasmine.json",
-        "test:e2e": "karma start"
+        "test": "jasmine --config=jasmine.json"
     },
     "dependencies": {
         "font-awesome": "^4.7.0"

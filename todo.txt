@@ -1,2 +1,3 @@
 -test image compression methods;
 -add i18n (use cldr?);
+-add pwa manifest;
