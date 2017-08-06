@@ -9,17 +9,12 @@
         "build:dev": "rm -rdf ./build && mkdir build && yarn && webpack --progress --display-error-details --config webpack/webpack.dev.config.js",
         "build:prod": "rm -rdf ./build && mkdir build && yarn && webpack --progress --display-error-details --config webpack/webpack.prod.config.js",
         "start:dev": "yarn && webpack-dev-server --progress --hot --inline --config webpack/webpack.dev.config.js",
-        "start:prod": "yarn && yarn run build:prod && http-server -p 8081 ./build",
+        "start:prod": "yarn && yarn run build:prod && http-server --gzip -p 8081 ./build",
         "test": "jasmine --config=jasmine.json",
         "test:e2e": "karma start"
     },
-    "browserslist": [
-        "last 3 versions"
-    ],
     "dependencies": {
-        "font-awesome": "^4.7.0",
-        "jquery": "^3.2.1",
-        "promise-polyfill": "^6.0.2"
+        "font-awesome": "^4.7.0"
     },
     "devDependencies": {
         "autoprefixer": "^7.1.1",
@@ -31,6 +26,7 @@
         "babel-plugin-transform-regenerator": "^6.24.1",
         "babel-plugin-transform-runtime": "^6.23.0",
         "babel-preset-es2015": "^6.24.1",
+        "compression-webpack-plugin": "^1.0.0",
         "css-loader": "^0.26.1",
         "extract-text-webpack-plugin": "^2.1.2",
         "favicons-webpack-plugin": "^0.0.7",
