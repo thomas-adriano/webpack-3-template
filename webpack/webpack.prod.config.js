@@ -38,18 +38,6 @@ module.exports = Merge(configs, {
 
 function rules() {
     return [
-        // {
-        //     test: /\.(gif|png|jpe?g|svg)$/,
-        //     use: [
-        //         {
-        //             loader: "url-loader",
-        //             options: {
-        //                 limit: projectConfigs.INLINE_ASSETS_MAX_SIZE_IN_BYTES, //10kb max
-        //                 name: "[hash].[ext]" //pass to file-loader
-        //             }
-        //         }
-        //     ]
-        // },
         {
             test: /\.(woff|woff2|eot|ttf)$/,
             use: [
