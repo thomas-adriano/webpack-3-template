@@ -23,3 +23,4 @@ To start using this template project, follow this instructions:
 * Supports [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS), [SASS](http://sass-lang.com/) and [LESS](http://lesscss.org/);
 * Supports the latest CSS features throught [CSSNext](http://cssnext.io/) and [Postcss](http://postcss.org/);
 * JS linting throught [JSHint](http://jshint.com/);
+* CSS/SASS linting throught [Stylelint](https://github.com/stylelint/stylelint).
