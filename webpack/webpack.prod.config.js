@@ -128,6 +128,9 @@ function plugins() {
         //generate different icons for iOS devices, Android devices and the Desktop browser out of this js.png file.
         new FaviconsWebpackPlugin(projectConfigs.FAVICON_PATH),
 
+        //make moment load only the languages defined in the second argument
+        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /pt|en|es/),
+
         //webpack hashing routines (hash, chunkhash) generates the hash in an indeterministic way.
         //because of this, this plugin is used to make chunkhash works like contenthash.
         new WebpackChunkHash(),

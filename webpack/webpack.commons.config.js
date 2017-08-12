@@ -18,7 +18,8 @@ module.exports = {
             path.resolve("./src"),
             path.resolve("./assets")
         ]
-    }
+    },
+    plugins: plugins()
 };
 
 function rules() {
@@ -30,9 +31,7 @@ function rules() {
             use: {
                 loader: "postcss-loader",
                 options: {
-                    plugins: [
-                        require("stylelint")()
-                    ]
+                    plugins: [require("stylelint")()]
                 }
             }
         },
@@ -47,5 +46,11 @@ function rules() {
             exclude: /(node_modules)/,
             use: "babel-loader"
         }
+    ];
+}
+
+function plugins() {
+    return [
+        
     ];
 }

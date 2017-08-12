@@ -7,6 +7,7 @@ import core from "core/core.js";
 core.initializeWebApp();
 
 import img from "images/landing.jpg";
+import moment from "moment";
 
 const imgEl = document.getElementById("landing-img");
 const btnContent1 = document.getElementById("btn-content1");
@@ -15,6 +16,9 @@ const btnContent3 = document.getElementById("btn-content3");
 const btnContent4 = document.getElementById("btn-content4");
 
 imgEl.src = img;
+
+const datesLabel = document.getElementById("dates");
+datesLabel.innerText = moment();
 
 btnContent1.addEventListener("click", () => {
     //this import could be a normal js file import, loading a full graph o dependencies
